@@ -1,0 +1,15 @@
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\bin\Release\Launcher.exe.config
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\bin\Release\Launcher.exe
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\bin\Release\Launcher.pdb
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\obj\Release\Launcher.csprojResolveAssemblyReference.cache
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\obj\Release\Launcher.Properties.Resources.resources
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\obj\Release\Launcher.csproj.GenerateResource.Cache
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\obj\Release\Launcher.exe
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\obj\Release\Launcher.pdb
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\bin\Release\UnityEngine.dll
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\bin\Release\Shared.dll
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\bin\Release\Newtonsoft.Json.dll
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\bin\Release\Shared.pdb
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\bin\Release\Newtonsoft.Json.xml
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\obj\Release\Launcher.Login.resources
+C:\Users\Lansenou\Desktop\Projects\Zinzolin\Launcher\obj\Release\Launcher.Form2.resources

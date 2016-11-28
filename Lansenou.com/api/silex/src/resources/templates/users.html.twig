@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'users' %}
+
+{% block head %}
+    <title>{{ 'Users'|trans }}</title>
+{% endblock %}
+
+{% block content %}
+    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <script>
+            window.setTimeout(function () {
+                window.location.href = "{{ url('login') }}";
+            }, 5000);
+        </script>
+
+        <div class="alert alert-danger">
+            <button class="close" data-dismiss="alert">×</button>
+            <h4>
+                Not logged in.
+            </h4>
+            <p>
+                Your are not logged in. The page will redirect to the login page in 5 seconds.
+            </p>
+        </div>
+    {% else %}
+        <h1>{{ 'Welcome'|trans }} {{ app.security.token.username }}! </h1>
+        {% if is_granted('ROLE_STAFF') %}
+            <p>You've got the following rights: </p>
+            <ul class="list-group">
+                {% for hierarchy in allRoles %}
+                    <li class="list-group-item active">{{ currentRole }}</li>
+                    {% for role in hierarchy %}
+                        {% if not currentRole is same as(role.getRole()) %}
+                            <li class="list-group-item">{{ role.getRole() }}</li>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <ul class ="list-group">
+            {% for user in users %}
+                <li class="list-group-item{% if app.security.token.username == user.username %} active{% endif %}">
+                {% if (is_granted('ROLE_STAFF') or app.security.token.username == user.username or user.roles is same as('ROLE_FORUM_MODERATOR')) %}
+                {% endif %}{{ user.username }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

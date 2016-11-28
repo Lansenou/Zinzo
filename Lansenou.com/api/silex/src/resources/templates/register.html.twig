@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% set active = 'account' %}
+
+{% block head %}
+    <title>{{ 'Register'|trans }}</title>
+    <script>
+        var RC2KEY = '6Le2eicTAAAAAOnt0-lLbXakyjiL-hs9r_cQrxzs';
+
+        function reCaptchaVerify(response) {
+            if (response === document.querySelector('.g-recaptcha-response').value) {
+                document.forms['register'].submit();
+            }
+        }
+
+        function reCaptchaExpired() {
+            /* do something when it expires */
+        }
+
+        function reCaptchaCallback() {
+            grecaptcha.render('captcha', {
+                'sitekey': RC2KEY,
+                'callback': reCaptchaVerify,
+                'expired-callback': reCaptchaExpired
+            });
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+
+    <h1>{{ 'Register'|trans }}</h1>
+
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.message }}
+        </div>
+
+    {% endif %}
+
+    {% if form is defined %}
+        <form name="register" action="#" method="post">
+            {{ form_widget(form) }}
+            <center><input type="submit" value="Submit"/></center>
+        </form>
+        <script src='https://www.google.com/recaptcha/api.js?onload=reCaptchaCallback&render=explicit'></script>
+
+    {% endif %}
+
+{% endblock %}

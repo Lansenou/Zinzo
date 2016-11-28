@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+{% set active = 'homepage' %}
+
+{% block head %}
+    <title>{{ 'Index'|trans }}</title>
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron">
+        <h1>
+            Welcome{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {{  app.security.token.username}}
+            {% endif %}!
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <p>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ path('logout') }}" class="btn btn-danger" role="button">{{ 'Logout'|trans }}</a>
+            {% else %}
+                <p>You are <b>not</b> logged in.</p>
+                <a href="{{ path('login') }}" class="btn btn-success" role="button">{{ 'Login'|trans }}</a>
+                <!--Please <a href="{{ path('login') }}">{{ 'connect'|trans }}-->
+            {% endif %}
+        </p>
+    </div>
+{% endblock %}
