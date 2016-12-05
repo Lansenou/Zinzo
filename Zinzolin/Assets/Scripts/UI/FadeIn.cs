@@ -6,11 +6,11 @@ namespace UI
     public class FadeIn : MonoBehaviour
     {
         [SerializeField]
-        bool fadeChildren = false;
+        protected bool fadeChildren = false;
         [SerializeField]
-        float fadeTime = 1;
+        protected float fadeTime = 1;
         [SerializeField]
-        bool shouldIgnoreTimescale = false;
+        protected bool shouldIgnoreTimescale = false;
 
         // Use this for initialization
         void Start()
@@ -29,7 +29,7 @@ namespace UI
             }
         }
 
-        void Fade(Graphic graphic)
+        public virtual void Fade(Graphic graphic)
         {
             graphic.CrossFadeAlpha(0, 0, true);
             graphic.CrossFadeAlpha(1, fadeTime, shouldIgnoreTimescale);

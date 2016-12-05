@@ -36,7 +36,7 @@ namespace Authentication
             LoginResult result = WWWHelper.ReadFromWWW<LoginResult>(www);
             if (result.wasSuccess)
             {
-                SessionManager.AddUser(new User(usernameField.text, passwordField.text, result.userID));
+                SessionManager.SetUser(new User(usernameField.text, passwordField.text, result.userID));
                 OnLogin.Invoke();
             }
             else

@@ -19,19 +19,26 @@ namespace Authentication
         {
             WWWForm form = new WWWForm();
             form.AddField("token", token);
-            form.AddField("userID", token);
+            form.AddField("userID", userId);
 
             WWW www = new WWW(verificationUrl, form);
             yield return www;
 
+            if (!string.IsNullOrEmpty(www.error))
+            {
+                Debug.LogError(username + token + www.error);
+            }
+
             VerificationResult result = WWWHelper.ReadFromWWW<VerificationResult>(www);
             if (result.wasSuccess)
             {
+                SessionManager.SetUser(new User(username, token, userId));
                 OnAuthenticate.Invoke(username, token, userId);
             }
             else
             {
-                Debug.LogError(result.errorMessage);
+                //TODO: Inform user
+                Debug.LogError(result.errorMessage + string.Format("[{0}],[{1}],[{2}]", username, token, userId));
             }
         }
     }

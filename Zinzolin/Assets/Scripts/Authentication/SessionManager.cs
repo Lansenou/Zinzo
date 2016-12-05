@@ -8,8 +8,9 @@ namespace Authentication
     {
         public static User currentUser = null;
 
-        public static void AddUser(User user)
+        public static void SetUser(User user)
         {
+            Debug.Log("New user is: " + user.Username);
             currentUser = user;
         }
     }

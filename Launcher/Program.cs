@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Launcher
@@ -16,7 +13,10 @@ namespace Launcher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new Form1());
+
+            // Force dispose of the notification icon
+            NotifyIconManager.Icon.Dispose();
         }
     }
 }
